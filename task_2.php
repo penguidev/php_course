@@ -36,23 +36,27 @@
                     <div class="panel-content">
                         <div class="fs-lg fw-300 p-5 bg-white border-faded rounded mb-g">
                             <?php
-                            $titles = ['Приваси', 'Куки','Шмуки','Шмуки-2'];
-                            $texts = [
-                                'Это текст для заголовка Приваси',
-                                'Это текст для Куки',
-                                'Это текст для Шмуки',
-                                'Это текст для Шмуки-2'
+                            
+                            $accepts = [
+                                [
+                                    'title' => 'Privacy',
+                                    'description' => 'This is privacy terms you accept'
+                                ],
+                                [
+                                    'title' => 'Cookie-Shmookie',
+                                    'description' => 'This is cookie-shmookie terms you accept'
+                                ]
                             ]
 
                             ?>
-                            <?php for ($i = 0; $i < count($titles); $i++) : ?>
                                 <div class="privacy-block">
-                                    <h2><?php echo $titles[$i]; ?></h2>
+                                    <?php foreach($accepts as $term): ?>
+                                    <h2><?php echo $term['title']; ?></h2>
                                     <p class="mb-g">
-                                        <?php echo $texts[$i] ?>
+                                        <?php echo $term['description'];?>
                                     </p>
+                                    <?php endforeach; ?>
                                 </div>
-                            <?php endfor; ?>
                         </div>
                     </div>
                 </div>
