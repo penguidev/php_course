@@ -46,7 +46,7 @@
                                     'social_text' => 'https://twitter.com/@myplaneticket',
                                     'mail_title' => 'Contact Sunny',
                                     'mail' => 'https://wrapbootstrap.com/user/myorange',
-                                    'is-banned' => false
+                                    'status' => 'active'
                                 ],
                                 [
                                     'photo_path' => 'img/demo/authors/josh.png',
@@ -57,7 +57,7 @@
                                     'social_text' => '@atlantez',
                                     'mail_title' => 'Contact Jos',
                                     'mail' => 'https://wrapbootstrap.com/user/Walapa',
-                                    'is-banned' => false
+                                    'status' => 'active'
                                 ],
                                 [
                                     'photo_path' => 'img/demo/authors/jovanni.png',
@@ -68,7 +68,7 @@
                                     'social_text' => '@lodev09',
                                     'mail_title' => 'Contact Jovanni',
                                     'mail' => 'https://wrapbootstrap.com/user/lodev09',
-                                    'is-banned' => true
+                                    'status' => 'banned'
                                 ],
                                 [
                                     'photo_path' => 'img/demo/authors/roberto.png',
@@ -79,12 +79,11 @@
                                     'social_text' => '@sildur',
                                     'mail_title' => 'Contact Roberto',
                                     'mail' => 'https://wrapbootstrap.com/user/sildur',
-                                    'is-banned' => true
+                                    'status' => 'banned'
                                 ]
                             ] ?>
                             <?php foreach ($devs as $dev) : ?>
-                                <?php if ($dev['is-banned']) { ?>
-                                    <div class="banned rounded-pill bg-white shadow-sm p-2 border-faded mr-3 d-flex flex-row align-items-center justify-content-center flex-shrink-0">
+                                    <div class=" <?php echo $dev['status'] == 'banned' ? 'banned' : '' ?> rounded-pill bg-white shadow-sm p-2 border-faded mr-3 d-flex flex-row align-items-center justify-content-center flex-shrink-0">
                                         <img src="<?php echo $dev['photo_path']; ?>" alt="<?php echo $dev['img_alt']; ?>" class="img-thumbnail img-responsive rounded-circle" style="width:5rem; height: 5rem;">
                                         <div class="ml-2 mr-3">
                                             <h5 class="m-0">
@@ -97,21 +96,6 @@
                                             <a href="<?php echo $dev['mail']; ?>" class="text-info fs-sm" target="_blank" title="<?php echo $dev['mail_title'] ?>"><i class="fal fa-envelope"></i></a>
                                         </div>
                                     </div>
-                                <?php } else { ?>
-                                    <div class="rounded-pill bg-white shadow-sm p-2 border-faded mr-3 d-flex flex-row align-items-center justify-content-center flex-shrink-0">
-                                        <img src="<?php echo $dev['photo_path']; ?>" alt="<?php echo $dev['img_alt']; ?>" class="img-thumbnail img-responsive rounded-circle" style="width:5rem; height: 5rem;">
-                                        <div class="ml-2 mr-3">
-                                            <h5 class="m-0">
-                                                <?php echo $dev['name']; ?>
-                                                <small class="m-0 fw-300">
-                                                    <?php echo $dev['position']; ?>
-                                                </small>
-                                            </h5>
-                                            <a href="<?php echo $dev['social_link']; ?>" class="text-info fs-sm" target="_blank"><?php echo $dev['social_text'] ?></a> -
-                                            <a href="<?php echo $dev['mail']; ?>" class="text-info fs-sm" target="_blank" title="<?php echo $dev['mail_title'] ?>"><i class="fal fa-envelope"></i></a>
-                                        </div>
-                                    </div>
-                                <?php } ?>
                             <?php endforeach; ?>
                         </div>
                     </div>
