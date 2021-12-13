@@ -56,7 +56,7 @@
                             [
                                 'mb_val' => 'mb-3',
                                 'p_title' => 'Bugs',
-                                'p_text_val' => '77%',
+                                'p_text_val' => '69%',
                                 'bg_color' => 'bg-info-400',
                                 'p_value_style' => '69%',
                                 'p_value_aria' => '69'   
