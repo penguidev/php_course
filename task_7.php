@@ -36,52 +36,14 @@
                     <div class="panel-content">
                         <div class="d-flex flex-wrap demo demo-h-spacing mt-3 mb-3">
 
-                            <?php $devs = [
-                                [
-                                    'photo_path' => 'img/demo/authors/sunny.png',
-                                    'img_alt' => 'Sunny A.',
-                                    'name' => 'Sunny A. (UI/UX Expert)',
-                                    'position' => 'Lead Author',
-                                    'social_link' => 'https://twitter.com/@myplaneticket',
-                                    'social_text' => '@myplaneticket',
-                                    'mail_title' => 'Contact Sunny',
-                                    'mail' => 'https://wrapbootstrap.com/user/myorange',
-                                    'status' => 'active'
-                                ],
-                                [
-                                    'photo_path' => 'img/demo/authors/josh.png',
-                                    'img_alt' => 'Jos K',
-                                    'name' => 'Jos K. (ASP.NET Developer)',
-                                    'position' => 'Partner &amp; Contributor',
-                                    'social_link' => 'https://twitter.com/@atlantez',
-                                    'social_text' => '@atlantez',
-                                    'mail_title' => 'Contact Jos',
-                                    'mail' => 'https://wrapbootstrap.com/user/Walapa',
-                                    'status' => 'active'
-                                ],
-                                [
-                                    'photo_path' => 'img/demo/authors/jovanni.png',
-                                    'img_alt' => 'Jovanni Lo',
-                                    'name' => 'Jovanni L. (PHP Developer)',
-                                    'position' => 'Partner &amp; Contributor',
-                                    'social_link' => 'https://twitter.com/@lodev09',
-                                    'social_text' => '@lodev09',
-                                    'mail_title' => 'Contact Jovanni',
-                                    'mail' => 'https://wrapbootstrap.com/user/lodev09',
-                                    'status' => 'banned'
-                                ],
-                                [
-                                    'photo_path' => 'img/demo/authors/roberto.png',
-                                    'img_alt' => 'Roberto P.',
-                                    'name' => 'Roberto R. (Rails Developer)',
-                                    'position' => 'Partner &amp; Contributor',
-                                    'social_link' => 'https://twitter.com/@sildur',
-                                    'social_text' => '@sildur',
-                                    'mail_title' => 'Contact Roberto',
-                                    'mail' => 'https://wrapbootstrap.com/user/sildur',
-                                    'status' => 'banned'
-                                ]
-                                ];
+                            <?php 
+                                $pdo = new PDO("mysql:host=localhost;dbname=php_course","root","root");
+                                $sql = "SELECT * FROM devs";
+
+                                $statement = $pdo->prepare($sql);
+                                $statement->execute();
+                                $devs = $statement->fetchAll(PDO::FETCH_ASSOC);
+                            
                             ?>
                             <?php foreach ($devs as $dev) : ?>
                                     <div class=" <?php echo $dev['status'] == 'banned' ? 'banned' : '' ?> rounded-pill bg-white shadow-sm p-2 border-faded mr-3 d-flex flex-row align-items-center justify-content-center flex-shrink-0">
