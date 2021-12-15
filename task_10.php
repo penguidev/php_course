@@ -1,3 +1,8 @@
+<?php 
+if (!isset($_SESSION)) { session_start(); }
+
+var_dump($_SESSION);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,11 +40,11 @@
                             <div class="panel-content">
                                 <div class="form-group">
                                     <div class="alert alert-danger fade show" role="alert">
-                                        You should check in on some of those fields below.
+                                        <?php echo $_SESSION['message']; ?>
                                     </div>
-                                    <form action="">
+                                    <form action="task_10_handler.php" method="post">
                                         <label class="form-label" for="simpleinput">Text</label>
-                                        <input type="text" id="simpleinput" class="form-control">
+                                        <input type="text" id="simpleinput" class="form-control" name="text">
                                         <button class="btn btn-success mt-3">Submit</button>
                                     </form>
                                 </div>
