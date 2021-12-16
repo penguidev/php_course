@@ -13,7 +13,7 @@ $task =$statement->fetch(PDO::FETCH_ASSOC);
 
 // var_dump($task);die;
 if(!empty($task)) {
-    $message = "This text is already exists";
+    $message = "Зис текст ис олреди экзистс";
     $_SESSION['message'] = $message;
 
     header('Location: /task_10.php');

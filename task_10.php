@@ -39,9 +39,14 @@ var_dump($_SESSION);
                         <div class="panel-content">
                             <div class="panel-content">
                                 <div class="form-group">
+                                    <?php if(isset($_SESSION['message'])): ?>
                                     <div class="alert alert-danger fade show" role="alert">
-                                        <?php echo $_SESSION['message']; ?>
+                                        <?php 
+                                        echo $_SESSION['message'];
+                                        unset($_SESSION['message']);
+                                        ?>
                                     </div>
+                                    <?php endif; ?>
                                     <form action="task_10_handler.php" method="post">
                                         <label class="form-label" for="simpleinput">Text</label>
                                         <input type="text" id="simpleinput" class="form-control" name="text">
