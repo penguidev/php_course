@@ -39,29 +39,16 @@ session_start();
                     <div class="panel-content">
                         <div class="panel-content">
                             <div class="form-group">
-                                <?php 
-                                $stmt = $pdo->query('SELECT text FROM form_data_2');
-                                $data = $stmt->fetchAll();
-                                print_r($data); 
-                                ?>
-                                <?php if (isset($_SESSION[''])) :
-
-                                ?>
-                                    <div class="alert alert-danger fade show" role="alert">
-                                        <?php
-                                        echo $_SESSION[''];
-                                        unset($_SESSION['']);
-                                        ?>
+                                <?php if (isset($_SESSION['text'])) :?>
+                                    <div class="alert alert-info fade show" role="alert">
+                                    <?php echo $_SESSION['text'] . '<br />'; ?>
                                     </div>
                                 <?php endif; ?>
-                                <form action="task_11_handler.php" method="post">
+                                <form action="task_12_handler.php" method="post">
                                     <div class="form-group">
-                                        <label class="form-label" for="simpleinput">Email</label>
-                                        <input type="email" name="email" id="simpleinput" class="form-control">
+                                        <label class="form-label" for="simpleinput">Text</label>
+                                        <input type="text" name="text" id="simpleinput" class="form-control">
                                     </div>
-
-                                    <label class="form-label" for="simpleinput">Password</label>
-                                    <input type="password" name="password" id="simpleinput" class="form-control">
                                     <button class="btn btn-success mt-3">Submit</button>
                                 </form>
                             </div>
